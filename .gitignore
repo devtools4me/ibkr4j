@@ -3,6 +3,7 @@
 **/build
 **/target
 **/ignite
+**/clientportal
 **/*.iml
 **/*.jar
 **/*.log

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>me.devtools4.ibkr4j</groupId>
+  <artifactId>ibkr4j-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <url>https://github.com/devtools4me/ibkr4j</url>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/devtools4me/ibkr4j</url>
+    <connection>scm:git:git@github.com:devtools4me/ibkr4j.git</connection>
+    <developerConnection>scm:git:git@github.com:devtools4me/ibkr4j.git</developerConnection>
+  </scm>
+
+  <modules>
+    <module>rest-client</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>11</java.version>
+    <maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+    <junit.version>4.12</junit.version>
+    <mockito.version>3.3.3</mockito.version>
+    <hamcrest.version>1.3</hamcrest.version>
+    <slf4j.version>1.7.29</slf4j.version>
+    <feign.version>11.0</feign.version>
+    <lombok.version>1.18.0</lombok.version>
+    <avro.version>1.9.2</avro.version>
+    <!--Ignite-->
+    <ignite.version>2.9.1</ignite.version>
+    <ignite-kafka-ext.version>1.0.0</ignite-kafka-ext.version>
+    <h2.version>1.4.197</h2.version>
+    <!--Spring-->
+    <spring.version>5.2.2.RELEASE</spring.version>
+    <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+    <micrometer.version>1.5.5</micrometer.version>
+    <dsl.version>1.9.3</dsl.version>
+    <!--Kafka-->
+    <kafka-clients.version>2.4.0</kafka-clients.version>
+    <!--Misc-->
+    <morpheus.version>1.0.31</morpheus.version>
+    <jfreechart.version>1.0.15</jfreechart.version>
+    <jcommon.version>1.0.17</jcommon.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${maven-dependency-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.github.openfeign</groupId>
+        <artifactId>feign-core</artifactId>
+        <version>${feign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.openfeign</groupId>
+        <artifactId>feign-gson</artifactId>
+        <version>${feign.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.dslplatform</groupId>
+        <artifactId>dsl-json-java8</artifactId>
+        <version>${dsl.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro</artifactId>
+        <version>${avro.version}</version>
+      </dependency>
+
+      <!--data-science-->
+      <dependency>
+        <groupId>com.d3xsystems</groupId>
+        <artifactId>d3x-morpheus-core</artifactId>
+        <version>${morpheus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.d3xsystems</groupId>
+        <artifactId>d3x-morpheus-viz</artifactId>
+        <version>${morpheus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.5</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>${jfreechart.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jcommon</artifactId>
+        <version>${jcommon.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.8.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>compile</scope>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-core</artifactId>
+        <version>${micrometer.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-registry-prometheus</artifactId>
+        <version>${micrometer.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <!--Tests-->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>${hamcrest.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j.version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
